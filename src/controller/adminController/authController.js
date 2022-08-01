@@ -1,4 +1,5 @@
 const admins = require('../../models/admins')
+const bcrypt = require("bcryptjs")
 
 /*admin register */
 const register = async(req, res, next) => {
@@ -17,11 +18,13 @@ const register = async(req, res, next) => {
                 message: "Account Already Exists..!"
             })
         }
+        /* Hash password */
+        const hashPassword = await bcrypt.hash(password, 10)
          
         const newAdmin = new admins({
             name,
             email,
-            password,
+            password:hashPassword,
             phone
         })
 
