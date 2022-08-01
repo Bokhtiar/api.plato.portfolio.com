@@ -1,6 +1,5 @@
 const admins = require('../../models/admins')
 
-
 /*admin register */
 const register = async(req, res, next) => {
     try {
@@ -18,7 +17,7 @@ const register = async(req, res, next) => {
                 message: "Account Already Exists..!"
             })
         }
-        
+         
         const newAdmin = new admins({
             name,
             email,
