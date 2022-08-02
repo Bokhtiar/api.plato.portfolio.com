@@ -4,6 +4,7 @@ const { CategoryvalidateRequest, isCategoryRequestValidated } = require('../../v
 
 
     categoryRoute.get('/', categoryController.Index)
+    categoryRoute.get('/:id', categoryController.Show)
     categoryRoute.post('/', CategoryvalidateRequest, isCategoryRequestValidated, categoryController.Store)
-
+    categoryRoute.delete('/:id', categoryController.Destroy)
 module.exports = categoryRoute
