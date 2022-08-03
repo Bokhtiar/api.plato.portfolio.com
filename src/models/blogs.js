@@ -15,6 +15,11 @@ const blogSchema = new Schema({
         require: true,
         trime: true
     },
+    slug: {
+        type: String,
+        require: true,
+        trime: true
+    },
     short_des: {
         type: String,
         require:true
