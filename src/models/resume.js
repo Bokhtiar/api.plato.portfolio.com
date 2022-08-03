@@ -2,6 +2,10 @@ const {Schema, model} = require('mongoose')
 
 /*fild declear*/
 const resumeSchema = new Schema({
+    type: {
+        type: String,
+        default : "profession"
+    },
     title:{
         type:String,
         require: true,
@@ -17,10 +21,11 @@ const resumeSchema = new Schema({
     },
     image: {
         type: String,
+        default: null
     },
     resumeStatus:{
         type: Boolean,
-        default:true
+        default: false
     }
 },{
     timestamps:true
