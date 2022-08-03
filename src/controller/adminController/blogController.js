@@ -66,6 +66,61 @@ const Store = async(req, res, next) => {
     }
 }
 
+/*blog show */
+const Show = async(req, res, next) => {
+    try {
+        const {id} = req.params
+        const result = await blogs.findById(id)
+        if(!result){
+            res.status(200).json({
+                status: false,
+                message: "Something Went Wrong..."
+            })
+        }
+        res.status(201).json({
+            status: true,
+            data: result
+        })
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+}
+
+/*status chnge */
+const Status = async(req, res, next) => {
+    try {
+        const {id} = req.params
+
+        const blog = await blogs.findById(id)
+        if(!blog){
+            res.status(404).json({
+                status: true,
+                message: "Something Went Wrong...!"
+            })
+        }
+        
+        if(blog.blogStatus == false){
+            blog.blogStatus = true
+            blog.save()
+            res.status(201).json({
+                status: true,
+                message: "Status Change Successfully."
+            })
+        }else{
+            blog.blogStatus = false
+            blog.save()
+            res.status(201).json({
+                status: true,
+                message: "Status Change Successfully."
+            })
+        }
+
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+}
 /*blog Destroy */
 const Destroy = async(req, res, next) => {
     try {
@@ -79,7 +134,7 @@ const Destroy = async(req, res, next) => {
         }
 
         await DeleteFile("./uploads/blog/", isRemove.image)
-        
+
         res.status(200).json({
             status: true,
             message: "Blog Deleted Successfully...!",
@@ -89,8 +144,12 @@ const Destroy = async(req, res, next) => {
     }
 }
 
+
+
 module.exports = {
     Index,
     Store,
     Destroy,
+    Show,
+    Status
 }
