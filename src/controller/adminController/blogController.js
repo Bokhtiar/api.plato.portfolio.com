@@ -1,5 +1,19 @@
-const { FileUpload } = require('../../helpers/images')
+const { FileUpload, DeleteFile } = require('../../helpers/images')
 const blogs = require('../../models/blogs')
+
+/*blog list */
+const Index = async(req, res, next) => {
+    try {
+        const results = await blogs.find()
+        res.status(201).json({
+            status: true,
+            data: results
+        })
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+}
 
 /*blog store */
 const Store = async(req, res, next) => {
@@ -52,6 +66,31 @@ const Store = async(req, res, next) => {
     }
 }
 
+/*blog Destroy */
+const Destroy = async(req, res, next) => {
+    try {
+        const {id} = req.params
+        const isRemove = await blogs.findByIdAndRemove(id)
+        if(!isRemove){
+            res.status(404).json({
+                status: true,
+                message: "Something Went Wrong...!"
+            })
+        }
+
+        await DeleteFile("./uploads/blog/", isRemove.image)
+        
+        res.status(200).json({
+            status: true,
+            message: "Blog Deleted Successfully...!",
+          });
+    } catch (error) {
+        
+    }
+}
+
 module.exports = {
+    Index,
     Store,
+    Destroy,
 }
