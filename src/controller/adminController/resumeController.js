@@ -41,8 +41,8 @@ const Store = async(req, res, next) => {
             })
         }
 
-        const image = req.files.image 
-        console.log("images is image",image)
+        /*if select image */
+        const image = req.files.image
         const uploadFile = await FileUpload(image, "./uploads/resume/");
         if(!uploadFile){
             res.status(404).json({
@@ -50,12 +50,15 @@ const Store = async(req, res, next) => {
                     message: "File upload something went wrong..."
                 })
         }
+            
+            
+        
         const newResume = new resumes({
             title,
             type,
             short_des,
             long_des,
-            image: uploadFile,
+            image: uploadFile
         })
         await newResume.save()
 
