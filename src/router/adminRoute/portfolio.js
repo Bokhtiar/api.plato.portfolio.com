@@ -4,5 +4,7 @@ const { PortfoliovalidateRequest, isPortfolioRequestValidated } = require('../..
     
     portfolioRoute.get('/',portfolioController.Index)
     portfolioRoute.post('/',PortfoliovalidateRequest,isPortfolioRequestValidated, portfolioController.Store)
-
+    portfolioRoute.get('/:id',portfolioController.Show)
+    portfolioRoute.get('/status/:id',portfolioController.Status)
+    portfolioRoute.delete('/:id',portfolioController.Destroy)
 module.exports = portfolioRoute

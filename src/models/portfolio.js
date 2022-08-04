@@ -31,6 +31,10 @@ const portfolioSchema = new Schema({
         type: String,
         trime: true,
         require: false
+    },
+    portfolioStatus: {
+        type: Boolean,
+        default: false
     }
 
 },{
