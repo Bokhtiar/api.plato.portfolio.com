@@ -20,6 +20,7 @@ app.use(fileUpload())
 app.use('/uploads/category', express.static('uploads/category/'))
 app.use('/uploads/blog', express.static('uploads/blog/'))
 app.use('/uploads/resume', express.static('uploads/resume/'))
+app.use('/uploads/portfolio', express.static('uploads/portfolio/'))
 
 app.get('/', async (req, res) => {
     res.send("Wow!😯 are you here🙃🙃 but you have no access!!! 😜😜😜")
