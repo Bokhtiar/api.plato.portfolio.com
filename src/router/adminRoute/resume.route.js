@@ -4,7 +4,7 @@ const { ResumevalidateRequest, isResumeRequestValidated } = require('../../valid
 
     resumeRoute.get('/', resumeController.Index)
     resumeRoute.post('/',ResumevalidateRequest, isResumeRequestValidated, resumeController.Store)
-    resumeRoute.get('/:', resumeController.Show)
+    resumeRoute.get('/:id', resumeController.Show)
     resumeRoute.get('/status/:id', resumeController.Status)
     resumeRoute.delete('/:id', resumeController.Destroy)
 

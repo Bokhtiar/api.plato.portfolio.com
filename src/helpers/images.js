@@ -8,11 +8,13 @@ const Host = (req) => {
 /*file uploads */
 const FileUpload = async (data, path) => {
     try {
+        if(!data){
+            return null
+        }
         const image = data
         const newName = Date.now() + '.jpg'
         uploadPath = path + newName
         const moveFile = image.mv(uploadPath)
-
         if (moveFile) return newName
     } catch (error) {
         if (error) return error
