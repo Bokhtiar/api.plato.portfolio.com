@@ -37,7 +37,8 @@ const Store = async(req, res, next) => {
             body,
             project_url,
             client_name,
-            start_time
+            start_time,
+            category
         } = req.body
 
         const image = req.files.image
@@ -54,7 +55,8 @@ const Store = async(req, res, next) => {
             image: uploadFile,
             project_url,
             client_name,
-            start_time
+            start_time,
+            category
         })
         await newPortfolio.save()
         res.status(201).json({

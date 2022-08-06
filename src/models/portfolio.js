@@ -1,7 +1,11 @@
-const {Schema, model} = require('mongoose')
+const {Schema, model, mongoose} = require('mongoose')
 
 /*fild deaclear */
 const portfolioSchema = new Schema({
+    category: {
+        type: mongoose.Types.ObjectId,
+        ref: "categories"
+    },
     title: {
         type: String,
         trime: true,

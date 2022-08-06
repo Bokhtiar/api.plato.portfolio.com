@@ -26,7 +26,7 @@ const Index = async(req, res, next) => {
 const Store = async(req, res, next) => {
     try {
         const {
-            title, type, short_des, long_des
+            title, type, short_des, long_des,date
         } = req.body
        
   
@@ -39,13 +39,7 @@ const Store = async(req, res, next) => {
             })
         }
 
-        /*if select image */
-    
-            const image = req.files ? req.files.image: ""
-            const uploadFile = await FileUpload(image, "./uploads/resume/");
-            
-        
-
+       
             
         
         const newResume = new resumes({
@@ -53,8 +47,7 @@ const Store = async(req, res, next) => {
             type,
             short_des,
             long_des,
-            
-            image: req.files ? uploadFile : ""
+            date
         })
         await newResume.save()
 

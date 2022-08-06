@@ -19,9 +19,9 @@ const resumeSchema = new Schema({
         type: String,
         require:true
     },
-    image: {
+    date: {
         type: String,
-        default: null
+        default: true
     },
     resumeStatus:{
         type: Boolean,
