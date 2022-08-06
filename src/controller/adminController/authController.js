@@ -75,6 +75,7 @@ const Login = async (req, res, next) => {
 
         /*compare against accounts */
         const result = await bcrypt.compare(password, account.password)
+        
         if (!result) {
             return res.status(404).json({
                 status: false,
