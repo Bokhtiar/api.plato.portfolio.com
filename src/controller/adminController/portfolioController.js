@@ -31,7 +31,7 @@ const Store = async(req, res, next) => {
                 message: "Image fild is require"
             })
         }
-
+ 
         const {
             title,
             body,
@@ -47,7 +47,7 @@ const Store = async(req, res, next) => {
             res.status(404).json({
                 status: false,
                 message: "Something went wrong file upload"
-            })
+            }) 
         }     
         const newPortfolio = new portfolios({
             title,

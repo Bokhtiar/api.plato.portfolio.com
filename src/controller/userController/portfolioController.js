@@ -1,7 +1,7 @@
 const portfolios = require('../../models/portfolio')
 const {Host} = require('../../helpers/images')
 
-/*portfolio list show */
+/*portfolio list show */ 
 const List = async(req, res, next) => {
     try {
         const items = []
