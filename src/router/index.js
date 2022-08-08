@@ -4,6 +4,7 @@ const blogRoute = require('./adminRoute/blog.route')
 const categoryRoute = require('./adminRoute/category.route')
 const portfolioRoute = require('./adminRoute/portfolio')
 const resumeRoute = require('./adminRoute/resume.route')
+const webSettingRoute = require('./adminRoute/websetting.route')
 const UserPortfolioRoute = require('./userRoute/portfolio')
 const UserResumeRoute = require('./userRoute/resume')
 
@@ -12,6 +13,7 @@ appRoute.use('/admin/category', categoryRoute)
 appRoute.use('/admin/blog', blogRoute)
 appRoute.use('/admin/resume', resumeRoute)
 appRoute.use('/admin/portfolio', portfolioRoute)
+appRoute.use('/admin/websetting', webSettingRoute)
 
 /*public route no protected*/
 appRoute.use('/user/resume', UserResumeRoute)
