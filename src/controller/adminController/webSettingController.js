@@ -89,7 +89,25 @@ const Store = async(req, res, next) => {
         next(error)
     }
 }
+
+/*destroy */
+const Destroy = async(req, res, next) => {
+    try {
+        const {id} = req.params
+        const result = await websettings.findByIdAndDelete(id)
+
+        res.status(201).json({
+            status: true,
+            message: "Deleted Successfully Done..."
+        })
+
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+}
 module.exports = {
     Index,
-    Store
+    Store,
+    Destroy
 }

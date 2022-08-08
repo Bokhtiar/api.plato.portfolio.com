@@ -4,6 +4,6 @@ const { WebsettingvalidateRequest, isWebsettingRequestValidated } = require('../
 
     webSettingRoute.get('/', webSettingController.Index)
     webSettingRoute.post('/', WebsettingvalidateRequest, isWebsettingRequestValidated, webSettingController.Store)
-
+    webSettingRoute.delete('/:id', webSettingController.Destroy)
 
 module.exports = webSettingRoute
