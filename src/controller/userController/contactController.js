@@ -6,10 +6,11 @@ const Store = async(req, res, next) => {
         const newContact = new contacts({
             name,email,subject,text
         })
+        await newContact.save()
 
         res.status(201).json({
             status: true,
-            message: "Contact Store Done..."
+            message: "Contact created successfully"
         })
     } catch (error) {
         console.log(error)
