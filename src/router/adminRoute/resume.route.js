@@ -1,7 +1,7 @@
 const resumeRoute = require('express').Router()
 const resumeController = require('../../controller/adminController/resumeController')
 const { ResumevalidateRequest, isResumeRequestValidated } = require('../../validator/resume')
-
+ 
     resumeRoute.get('/', resumeController.Index)
     resumeRoute.post('/',ResumevalidateRequest, isResumeRequestValidated, resumeController.Store)
     resumeRoute.get('/:id', resumeController.Show)

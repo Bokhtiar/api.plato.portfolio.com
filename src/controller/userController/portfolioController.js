@@ -5,7 +5,7 @@ const {Host} = require('../../helpers/images')
 const List = async(req, res, next) => {
     try {
         const items = []
-        const results = await portfolios.find().populate('category')
+        const results = await portfolios.find()
         if(!results){
             res.status(404).json({
                 status: true,

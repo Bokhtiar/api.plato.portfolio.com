@@ -4,7 +4,7 @@ const portfolios = require('../../models/portfolio')
 /*list portfolios */
 const Index = async(req, res, next) => {
     try {   
-        const results = await portfolios.find()
+        const results = await portfolios.find().populate('category')
         if(!results){
             res.status(404).json({
                 status: false,

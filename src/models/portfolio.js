@@ -1,6 +1,6 @@
 const {Schema, model, mongoose} = require('mongoose')
 
-/*fild deaclear */
+/*fild deaclear */  
 const portfolioSchema = new Schema({
     category: {
         type: mongoose.Types.ObjectId,
@@ -9,7 +9,7 @@ const portfolioSchema = new Schema({
     title: {
         type: String,
         trime: true,
-        require: true
+        require: true 
     },
 	body: { 
         type: String,
