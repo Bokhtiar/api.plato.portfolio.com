@@ -71,7 +71,7 @@ mongoose.connect(process.env.DB_URL)
     })
 
 // App Port
-const port = 4000
+const port = 4003
 app.listen(port, () => {
     console.log(`App running on ${port} port`)
-})
+}) 

@@ -3,7 +3,7 @@ const {Schema, model} = require('mongoose')
 /*categories table fild define */
 const CategorySchema = new Schema({
     name: {
-        type: String,
+        type: String, 
         trime : true,
         require : true
     },
@@ -15,6 +15,10 @@ const CategorySchema = new Schema({
     image: {
         type: String,
         require: true
+    },
+    type: {
+        type: String,
+        require: true,
     },
     cat_status: {
         type: Boolean,

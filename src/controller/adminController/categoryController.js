@@ -18,7 +18,7 @@ const Index = async(req, res, next) => {
 /*create store*/
 const Store = async(req, res, next) => {
     try {
-        const {name} = req.body
+        const {name, type} = req.body
         /*file check */
         if(!req.files){
             res.status(200).json({
@@ -50,6 +50,7 @@ const Store = async(req, res, next) => {
             name,
             image: uploadFile,
             slug: name,
+            type,
         })
         await newCategory.save()
         res.status(200).json({
