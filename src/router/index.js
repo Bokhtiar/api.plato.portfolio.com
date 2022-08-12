@@ -1,5 +1,6 @@
 const appRoute = require('express').Router()
 const AdminAuthRoute = require('../router/adminRoute/auth/auth.route')
+const AboutRoute = require('./adminRoute/about.route')
 const blogRoute = require('./adminRoute/blog.route')
 const categoryRoute = require('./adminRoute/category.route')
 const contactRoute = require('./adminRoute/contact')
@@ -19,6 +20,7 @@ appRoute.use('/admin/resume', resumeRoute)
 appRoute.use('/admin/portfolio', portfolioRoute)
 appRoute.use('/admin/websetting', webSettingRoute)
 appRoute.use('/admin/contact', contactRoute)
+appRoute.use('/admin/about', AboutRoute)
 
 /*public route no protected*/
 appRoute.use('/user/resume', UserResumeRoute)

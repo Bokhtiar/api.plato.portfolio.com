@@ -8,7 +8,7 @@ const aboutSchema = new Schema({
     },
     title: {
         type: String,
-        require: true,
+        require: true, 
     },
     body: {
         type: String,
