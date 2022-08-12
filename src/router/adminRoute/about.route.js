@@ -3,6 +3,7 @@ const aboutController = require('../../controller/adminController/aboutControlle
 
     AboutRoute.get('/', aboutController.Index)
     AboutRoute.post('/', aboutController.Store)
-    
+    AboutRoute.get('/:id', aboutController.Show)
+    AboutRoute.delete('/:id', aboutController.Destroy)
 
 module.exports = AboutRoute
