@@ -22,6 +22,7 @@ app.use('/uploads/blog', express.static('uploads/blog/'))
 app.use('/uploads/resume', express.static('uploads/resume/'))
 app.use('/uploads/portfolio', express.static('uploads/portfolio/'))
 app.use('/uploads/websetting', express.static('uploads/websetting/'))
+app.use('/uploads/about', express.static('uploads/about/'))
 
 app.get('/', async (req, res) => {
     res.send("Wow!😯 are you here🙃🙃 but you have no access!!! 😜😜😜")
