@@ -119,9 +119,69 @@ const Destroy = async(req, res, next) => {
     }
 }
 
+/**update */
+
+/**Store */
+const Update = async(req, res, next) => {
+    try {
+        const {id} = req.params
+        const {
+            title,
+            body,
+            about1,
+            about2,
+            about3,
+            about4,
+        } = req.body
+
+        /**image file upload */
+        const image = req.files.image
+        if(!image){
+            res.status(404).json({
+                status: true,
+                message: "File upload something went wrong..."
+            })
+        }
+      
+        const uploadFile = await FileUpload(image,  "./uploads/about/")
+        if(!uploadFile){
+            res.status(404).json({
+                    status: true,
+                    message: "File upload something went wrong..."
+                })
+        }
+
+       await abouts.findByIdAndUpdate(
+           id,
+           {
+            title,
+            body,
+            about1,
+            about2,
+            about3,
+            about4,
+            image:uploadFile
+           }
+       )
+        
+  
+
+        res.status(201).json({
+            status: true,
+            message: "About Updated Successfully Done."
+        })
+
+    } catch (error) {
+        console.log(error);
+        next(error)
+    }
+}
+
+
 module.exports = {
     Index,
     Store,
     Show,
-    Destroy
+    Destroy,
+    Update
 }

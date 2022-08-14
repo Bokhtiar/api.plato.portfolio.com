@@ -7,6 +7,7 @@ const contactRoute = require('./adminRoute/contact')
 const portfolioRoute = require('./adminRoute/portfolio')
 const resumeRoute = require('./adminRoute/resume.route')
 const webSettingRoute = require('./adminRoute/websetting.route')
+const UserAboutRoute = require('./userRoute/about')
 const UserCategoryRoute = require('./userRoute/category')
 const UserContactRoute = require('./userRoute/contact')
 const UserPortfolioRoute = require('./userRoute/portfolio')
@@ -28,6 +29,7 @@ appRoute.use('/user/portfolio', UserPortfolioRoute)
 appRoute.use('/user/websetting', UserWebSetting)
 appRoute.use('/user/contact', UserContactRoute)
 appRoute.use('/user/category', UserCategoryRoute)
+appRoute.use('/user/about', UserAboutRoute)
 
 
 module.exports = appRoute
