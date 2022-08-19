@@ -4,7 +4,7 @@ const blogs = require('../../models/blogs')
 /*blog list */
 const Index = async(req, res, next) => {
     try {
-        const results = await blogs.find()
+        const results = await blogs.find().populate('category')
         res.status(201).json({
             status: true,
             data: results
